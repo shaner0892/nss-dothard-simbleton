@@ -144,5 +144,19 @@ const businesses = [
 
 //creates a copy/map of the businesses array and exports it
 export const getBusinesses = () => {
-    return supplies.map(business => ({...business}))
+    return businesses.map(business => ({...business}))
     }
+
+//function that finds all the businesses in NY
+const nyCompanies = (business) => {
+    if (business.addressStateCode === "NY") {
+        return true
+    } 
+    return false
+}
+
+//creates a new array that contains NY companies
+export const nyBusinesses = () => {
+    const filteredBusinesses = businesses.filter( nyCompanies )
+    return filteredBusinesses
+}

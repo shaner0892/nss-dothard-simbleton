@@ -1,38 +1,12 @@
 //import functions
+import { businessList } from "./BusinessList.js"
+import { nyBusinesses } from "./database.js"
 
-import { businessInfo } from "./Business.js"
+businessList()
 
-
-
-const mainContainer = document.querySelector(".container")
-
+const mainContainer = document.querySelector(".businessList--newYork")
 const applicationHTML = `
-    <h1>Active Businesses</h1>
-    <article id="businesses">
-        ${businessInfo()}
-    </article>
-    `
+<h1>New York Companies</h1>
+${nyBusinesses}
+`
 mainContainer.innerHTML = applicationHTML
-
-// const applicationHTML = `
-// <h1>Active Businesses</h1>
-// <article id="businesses">
-//     <section class="detail--column list details__cities">
-//         <h2>Cities with Service</h2>
-//         ${CityList()}
-//     </section>
-//     <section class="detail--column list details__cities">
-//         <h2>Walkers</h2>
-//         ${Walkers()}
-//     </section>
-//     <section class="detail--column list details__cities">
-//         <h2>Pets</h2>
-//         ${RegisteredPets()}
-//     </section>
-// </article>
-
-// <article class="assignments">
-//     <h2>Current Assignments</h2>
-//     ${Assignments()}
-// </article>
-// `
