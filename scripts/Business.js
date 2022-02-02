@@ -11,3 +11,12 @@ export const businessInfo = ( businessObject ) => {
     `
 }
 
+
+export const pAInfo = ( pAObject ) => {
+    return `
+        <section class="agent">
+            <h2 class="agent-name">${pAObject.nameFirst} ${pAObject.nameLast}</h2>
+            <h3 class="agent-info"></h3>
+        </section>
+    `
+}

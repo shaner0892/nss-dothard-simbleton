@@ -155,8 +155,35 @@ const nyCompanies = (business) => {
     return false
 }
 
-//creates a new array that contains NY companies
+//creates a new array that contains NY companies using .filter method
 export const nyBusinesses = () => {
-    const filteredBusinesses = businesses.filter( nyCompanies )
-    return filteredBusinesses
+    const nyArray = businesses.filter( nyCompanies )
+    return nyArray
+}
+
+// //attempting my own .filter, it works and would replace the above two functions, this just uses an anonymous function instead of defining one
+// export const myNYcomps = businesses.filter(business => business.addressStateCode === "NY");
+
+//function that finds all the businesses in manufacturing
+const manufacturingCompanies = (business) => {
+    if (business.companyIndustry === "Manufacturing") {
+      return true
+    }
+}
+
+//export a new array that contains the manufacturing companies using the .filter method
+export const manufacturingBusiness = () => {
+    const manufacturingArray = businesses.filter( manufacturingCompanies )
+    return manufacturingArray
+}
+
+// //my own attempt at the shorter method using an anonymous function
+// export const myManufacturingCompanies = businesses.filter(businesses => business.companyIndustry === "Manufacturing");
+
+//creates a new array of the purchasing agents only
+export const getPurchasingAgents = () => {
+  const onlyPAs = businesses.map(business => {
+    return business.purchasingAgent
+  })
+  return onlyPAs
 }
