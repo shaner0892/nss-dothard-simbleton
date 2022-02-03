@@ -183,7 +183,13 @@ export const manufacturingBusiness = () => {
 //creates a new array of the purchasing agents only
 export const getPurchasingAgents = () => {
   const onlyPAs = businesses.map(business => {
-    return business.purchasingAgent
+    //creates a new object pulling only certain information from the businesses array
+    let pAObject = {
+      fullName: `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`,
+      company: business.companyName,
+      phoneNumber: business.phoneWork
+    }
+    return pAObject
   })
   return onlyPAs
 }

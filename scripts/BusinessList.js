@@ -7,6 +7,11 @@ const nyTarget = document.querySelector(".businessList--newYork")
 const manufacturingTarget = document.querySelector(".businessList--manufacturing")
 const pATarget = document.querySelector(".agents")
 
+
+const businessArray = getBusinesses()
+
+
+
 //defining and exporting a function, no parameters
 export const businessList = () => {
     //invoking the imported function and assigning the array of businesses to a variable
@@ -51,3 +56,54 @@ export const pAList = () => {
             pATarget.innerHTML += pAInfo(pAObject)
         } )
 }
+//designating where you will put the company search results
+const companySearchResults = document.querySelector(".foundCompanies")
+
+document
+    //selects the string that is input into the search bar?
+    .querySelector("#companySearch")
+        //adds an event listener for a key press
+        .addEventListener(
+            "keypress",
+            //defines a function for what to do when the key press event happens
+            keyPressEvent => {
+                //.charCode points to a specific event according to the #, 13 is keyEnter
+                if (keyPressEvent.charCode === 13) {
+                    /*
+                        When the user presses 'Enter', find the matching business.
+
+                        You can use the `.includes()` string method to
+                        see if a smaller string is part of a larger string.
+
+                        Example: business.companyName.includes(keyPressEvent.target.value)
+                    */
+                   
+                    const searchValue = document.querySelector("#companySearch").value
+                
+                    //use the .find method to search the business array that matches the search
+                    const foundBusiness = businessArray.find(business => {
+                        return business.companyName.includes(searchValue)
+                    })
+                    //adding the results to the inner HTML
+                    companySearchResults.innerHTML = businessInfo(foundBusiness) 
+                }
+            }
+        )
+
+
+
+// my attempt
+// const searchFor = document.getElementById("companySearch").value
+
+// //create a function using the .find() method that finds a matching company to the one searched
+// export const findSearchedCompany = () => {
+//   const matchingCompany = businesses.find(business => searchFor === business.companyName)
+
+//   return matchingCompany
+// }
+
+// document.addEventListener("keypress",
+//   (logKey) => {
+//       const itemClicked = clickEvent.target
+//   }
+// )

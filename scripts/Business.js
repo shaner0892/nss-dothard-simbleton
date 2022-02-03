@@ -15,8 +15,9 @@ export const businessInfo = ( businessObject ) => {
 export const pAInfo = ( pAObject ) => {
     return `
         <section class="agent">
-            <h2 class="agent-name">${pAObject.nameFirst} ${pAObject.nameLast}</h2>
-            <h3 class="agent-info"></h3>
+            <h2 class="agent-name">${pAObject.fullName}</h2>
+            <h3 class="agent-info">${pAObject.company}</h3>
+            <h3 class="agent-info">${pAObject.phoneNumber}</h3>
         </section>
     `
 }
