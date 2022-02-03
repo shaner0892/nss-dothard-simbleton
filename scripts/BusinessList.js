@@ -8,8 +8,8 @@ const manufacturingTarget = document.querySelector(".businessList--manufacturing
 const pATarget = document.querySelector(".agents")
 
 
-const businessArray = getBusinesses()
-
+//const businessArray = getBusinesses()
+const pAArray = getPurchasingAgents()
 
 
 //defining and exporting a function, no parameters
@@ -56,16 +56,53 @@ export const pAList = () => {
             pATarget.innerHTML += pAInfo(pAObject)
         } )
 }
+
+// //designating where you will put the company search results
+// const companySearchResults = document.querySelector(".foundCompanies")
+
+// document
+//     //selects the string that is input into the search bar?
+//     .querySelector("#companySearch")
+//         //adds an event listener for a key press
+//         .addEventListener(
+//             "keypress",
+//             //defines a function for what to do when the key press event happens
+//             keyPressEvent => {
+//                 //.charCode points to a specific event according to the #, 13 is keyEnter
+//                 if (keyPressEvent.charCode === 13) {
+//                     /*
+//                         When the user presses 'Enter', find the matching business.
+
+//                         You can use the `.includes()` string method to
+//                         see if a smaller string is part of a larger string.
+
+//                         Example: business.companyName.includes(keyPressEvent.target.value)
+//                     */
+
+//                     const searchValue = document.querySelector("#companySearch").value
+                
+//                     //use the .find method to search the business array that matches the search
+//                     const foundBusiness = businessArray.find(business => {
+//                         return business.companyName.includes(searchValue)
+//                     })
+//                     //adding the results to the inner HTML
+//                     companySearchResults.innerHTML = businessInfo(foundBusiness) 
+//                 }
+//             }
+//         )
+
+
+
 //designating where you will put the company search results
-const companySearchResults = document.querySelector(".foundCompanies")
+const pASearchResults = document.querySelector(".foundPA")
 
 document
-    //selects the string that is input into the search bar?
-    .querySelector("#companySearch")
-        //adds an event listener for a key press
+    //selects the string that is input into the search bar by using the id tag in index.html
+    .querySelector("#pASearch")
+        //adds an event listener for a keypress
         .addEventListener(
             "keypress",
-            //defines a function for what to do when the key press event happens
+            //defines a function for what to do when the keypress event happens
             keyPressEvent => {
                 //.charCode points to a specific event according to the #, 13 is keyEnter
                 if (keyPressEvent.charCode === 13) {
@@ -77,20 +114,17 @@ document
 
                         Example: business.companyName.includes(keyPressEvent.target.value)
                     */
-                   
-                    const searchValue = document.querySelector("#companySearch").value
+                    const searchValue = document.querySelector("#pASearch").value
                 
                     //use the .find method to search the business array that matches the search
-                    const foundBusiness = businessArray.find(business => {
-                        return business.companyName.includes(searchValue)
+                    const foundPA = pAArray.find(pAgent => {
+                        return pAgent.fullName.includes(searchValue)
                     })
                     //adding the results to the inner HTML
-                    companySearchResults.innerHTML = businessInfo(foundBusiness) 
+                    pASearchResults.innerHTML = pAInfo(foundPA) 
                 }
             }
         )
-
-
 
 // my attempt
 // const searchFor = document.getElementById("companySearch").value
@@ -104,6 +138,4 @@ document
 
 // document.addEventListener("keypress",
 //   (logKey) => {
-//       const itemClicked = clickEvent.target
-//   }
-// )
+//       const itemClicked = clickEvent.target})

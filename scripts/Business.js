@@ -11,7 +11,7 @@ export const businessInfo = ( businessObject ) => {
     `
 }
 
-
+//defines a function that returns the Purchasing Agents name, company, and phone # in html format
 export const pAInfo = ( pAObject ) => {
     return `
         <section class="agent">
